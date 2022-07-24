@@ -1,5 +1,5 @@
 main.exe: sorts.o main.o sort_utility.o
-	g++ sorts.o main.o
+	g++ sorts.o main.o sort_utility.o -o main.exe
 main.o:  main.cpp
 	g++ -c main.cpp
 

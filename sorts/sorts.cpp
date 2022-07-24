@@ -4,7 +4,7 @@ template <typename T_element>
 void Sorts<T_element>::print()
 {
 	printf("hi");
-}
+};
 
 template <typename T_element>
 void Sorts<T_element>::bubbleSort(T_element *array, int length, bool (*less_than)(T_element, T_element))
@@ -18,7 +18,8 @@ void Sorts<T_element>::bubbleSort(T_element *array, int length, bool (*less_than
 			}
 			else
 			{
-				Sorts<T_element>::swap(*(array + j), *(array + i));
+				Utility<int> u;
+				u.swap(*(array + j), *(array + i));
 			}
 		}
 	}
