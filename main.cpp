@@ -11,7 +11,11 @@ int main()
 {
 	Sorts<int> s;
 	int array[5] = {5, 4, 3, 2, 1};
-	s.print();
+	s.bubbleSort(array, 5, &less_than);
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%d", array[i]);
+	}
 }
 
 bool less_than(int a, int b)

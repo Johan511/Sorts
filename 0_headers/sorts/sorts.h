@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include "../utilities/sort_utility.h"
 template <typename T_element>
@@ -14,3 +15,5 @@ public:
 
 protected:
 };
+
+#include "../../sorts/sorts.tpp"
