@@ -1,5 +1,5 @@
-main.exe: sorts.o main.o sort_utility.o
-	g++ sorts.o main.o sort_utility.o -o main.exe
+main.out: sorts.o main.o sort_utility.o
+	g++ sorts.o main.o sort_utility.o -o main.out
 main.o:  main.cpp
 	g++ -c main.cpp
 
@@ -10,4 +10,7 @@ sorts.o: ./0_headers/sorts/sorts.h ./sorts/sorts.cpp
 	g++ -c ./sorts/sorts.cpp 
 
 clean:
-	rm *.o *.exe
+	rm *.o *.exe *.out *.i
+
+run:
+	make && rm *.o *.i 
