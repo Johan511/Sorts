@@ -12,5 +12,7 @@ sorts.o: ./0_headers/sorts/sorts.h ./sorts/sorts.cpp
 clean:
 	rm *.o *.exe *.out *.i
 
+
+
 run:
-	make && rm *.o *.i 
+	ulimit -s unlimited; make && rm *.o *.i 

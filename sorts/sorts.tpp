@@ -1,12 +1,6 @@
 #include "../0_headers/sorts/sorts.h"
 
 template <typename T_element>
-void Sorts<T_element>::print()
-{
-	printf("hi");
-};
-
-template <typename T_element>
 void Sorts<T_element>::bubbleSort(T_element *array, int length, bool (*less_than)(T_element, T_element))
 {
 	for (int i = 0; i < length; i++)
@@ -93,13 +87,14 @@ void Sorts<T_element>::__merge(T_element *array1, int len1, T_element *array2, i
 template <typename T_element>
 void Sorts<T_element>::quickSort_0(T_element *array, int length, bool (*less_than)(T_element, T_element))
 {
-	__quickSort_0(array, 0, len - 1, less_than);
+	__quickSort_0(array, 0, length - 1, less_than);
 }
 
 template <typename T_element>
 void Sorts<T_element>::__quickSort_0(T_element *array, int start, int end, bool (*less_than)(T_element, T_element))
 {
-	if (start < end)
+
+	if (end - start > 2)
 	{
 		int pivot_position = __partition_0(array, start, end, less_than);
 
@@ -111,14 +106,31 @@ void Sorts<T_element>::__quickSort_0(T_element *array, int start, int end, bool 
 template <typename T_element>
 int Sorts<T_element>::__partition_0(T_element *array, int start, int end, bool (*less_than)(T_element, T_element))
 {
+	int l_marker = 0;
+	int g_marker = 0;
 	int pivot_index = __getPivotIndex_0(array, start, end, less_than);
-	u.swap(&pivot_index, &array[0]);
+	u.swap(array[pivot_index], array[start]);
+	for (int i = start + 1; i <= end; i++)
+	{
+		if (less_than(array[start], array[i]))
+		{
+			g_marker++;
+		}
+		else
+		{
+			u.swap(array[l_marker + 1], array[i]);
+			l_marker++;
+			g_marker++;
+		}
+	}
+	u.swap(array[start], array[l_marker]);
+	return l_marker;
 }
 
 template <typename T_element>
 int Sorts<T_element>::__getPivotIndex_0(T_element *array, int start, int end, bool (*less_than)(T_element, T_element))
 {
-	return 0;
+	return start;
 }
 
 // can't template count sort (same for radix sort)

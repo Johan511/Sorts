@@ -37,7 +37,6 @@ public:
 	void bubbleSort(int length, T_element...);
 	void insertionSort(int length, T_element...);
 	void mergeSort(int length, T_element...);
-	void print();
 
 protected:
 };
