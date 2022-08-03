@@ -1,5 +1,5 @@
 main.out: sorts.o main.o sort_utility.o
-	g++ sorts.o main.o sort_utility.o -o main.out
+	g++ -O3 sorts.o main.o sort_utility.o -o main.out
 main.o:  main.cpp
 	g++ -c main.cpp
 
@@ -15,4 +15,4 @@ clean:
 
 
 run:
-	ulimit -s unlimited; make && rm *.o *.i 
+	make && rm *.o *.i 

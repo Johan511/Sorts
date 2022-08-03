@@ -94,20 +94,21 @@ template <typename T_element>
 void Sorts<T_element>::__quickSort_0(T_element *array, int start, int end, bool (*less_than)(T_element, T_element))
 {
 
-	if (end - start > 2)
+	if (end - start > 0)
 	{
 		int pivot_position = __partition_0(array, start, end, less_than);
 
-		__quickSort_0(array, 0, pivot_position, less_than);
+		__quickSort_0(array, start, pivot_position - 1, less_than);
 		__quickSort_0(array, pivot_position + 1, end, less_than);
 	}
+	return;
 }
 
 template <typename T_element>
 int Sorts<T_element>::__partition_0(T_element *array, int start, int end, bool (*less_than)(T_element, T_element))
 {
-	int l_marker = 0;
-	int g_marker = 0;
+	int l_marker = start;
+	int g_marker = start;
 	int pivot_index = __getPivotIndex_0(array, start, end, less_than);
 	u.swap(array[pivot_index], array[start]);
 	for (int i = start + 1; i <= end; i++)
@@ -124,6 +125,10 @@ int Sorts<T_element>::__partition_0(T_element *array, int start, int end, bool (
 		}
 	}
 	u.swap(array[start], array[l_marker]);
+	// cout << "start : " << start << "  ";
+	// cout << "end : " << end << "  ";
+	// cout << "pivot : " << l_marker << "  ";
+	// cout << endl;
 	return l_marker;
 }
 
