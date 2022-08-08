@@ -41,11 +41,15 @@ int main()
 	int a[5] = {1, 2, 3, 5, 4};
 	chrono_start = chrono::high_resolution_clock::now();
 
-	cout << "start" << endl;
 	s.mergeSort(array_hundered_million, N, less_than);
 	chrono_end = chrono::high_resolution_clock::now();
-	cout << "done" << endl;
-	cout << "mergeSort million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
+	cout << "mergeSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
+
+	chrono_start = chrono::high_resolution_clock::now();
+	cout << "starting quick sort " << endl;
+	s.quickSort_0(array_hundered_million, N, less_than);
+	chrono_end = chrono::high_resolution_clock::now();
+	cout << "quickSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
 
 	// chrono_start = chrono::high_resolution_clock::now();
 	// s.quickSort_0(array_ten_million, 10000000, less_than);
