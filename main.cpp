@@ -8,7 +8,7 @@
 #include <vector>
 #include <sys/resource.h>
 
-#define N 10000000
+#define N 100000000
 void isSorted(int *array, int length);
 // Idea derived from slides of Dr. Rupesh Nasre
 //  http://www.cse.iitm.ac.in/~rupesh/teaching/programming/may22/code/sort.cpp
@@ -39,17 +39,14 @@ int main()
 	cout << "created all arrays in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
 	Sorts<int> s;
 	int a[5] = {1, 2, 3, 5, 4};
-	chrono_start = chrono::high_resolution_clock::now();
 
-	s.mergeSort(array_hundered_million, N, less_than);
-	chrono_end = chrono::high_resolution_clock::now();
-	cout << "mergeSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
+	__MEASURE_TIME(mergeSort, array_hundered_million, N, less_than);
 
-	chrono_start = chrono::high_resolution_clock::now();
-	cout << "starting quick sort " << endl;
-	s.quickSort_0(array_hundered_million, N, less_than);
-	chrono_end = chrono::high_resolution_clock::now();
-	cout << "quickSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
+	// chrono_start = chrono::high_resolution_clock::now();
+	//
+	// s.mergeSort(array_hundered_million, N, less_than);
+	// chrono_end = chrono::high_resolution_clock::now();
+	// cout << "mergeSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
 
 	// chrono_start = chrono::high_resolution_clock::now();
 	// s.quickSort_0(array_ten_million, 10000000, less_than);

@@ -1,6 +1,15 @@
 #pragma once
 #include <stdio.h>
 #include "../utilities/sort_utility.h"
+
+#define __MEASURE_TIME(sort_method, array, length, compare_function)                                             \
+	{                                                                                                            \
+		chrono_start = chrono::high_resolution_clock::now();                                                     \
+		s.sort_method(array, length, compare_function);                                                          \
+		chrono_end = chrono::high_resolution_clock::now();                                                       \
+		cout << "sorting " << length << " elements using "                                                       \
+			 << " took " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl; \
+	}
 template <typename T_element>
 struct __min_max
 {
