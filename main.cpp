@@ -34,36 +34,11 @@ int main()
 
 	chrono_end = chrono::high_resolution_clock::now();
 
-	// chrono::duration<double> elapsed_seconds = chrono_end - chrono_start;
-
 	cout << "created all arrays in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
 	Sorts<int> s;
 	int a[5] = {1, 2, 3, 5, 4};
 
 	__MEASURE_TIME(mergeSort, array_hundered_million, N, less_than);
-
-	// chrono_start = chrono::high_resolution_clock::now();
-	//
-	// s.mergeSort(array_hundered_million, N, less_than);
-	// chrono_end = chrono::high_resolution_clock::now();
-	// cout << "mergeSort hundered million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
-
-	// chrono_start = chrono::high_resolution_clock::now();
-	// s.quickSort_0(array_ten_million, 10000000, less_than);
-	// chrono_end = chrono::high_resolution_clock::now();
-	// cout << "quick sorted 10 million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
-
-	// chrono_start = chrono::high_resolution_clock::now();
-	// s.quickSort_0(array_hundered_million, 100000000, less_than);
-	// chrono_end = chrono::high_resolution_clock::now();
-	// cout << "quick sorted 100 million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
-
-	// chrono_start = chrono::high_resolution_clock::now();
-	// s.quickSort_0(array_thousand_million, 1000000000, less_than);
-	// chrono_end = chrono::high_resolution_clock::now();
-	// cout << "quick sorted 1000 million elements in " << (chrono::duration<double>(chrono_end - chrono_start)).count() << " seconds" << endl;
-	isSorted(array_hundered_million, N);
-	cout << endl;
 
 	delete array_million;
 	delete array_ten_million;
@@ -85,7 +60,6 @@ void random_populate(int *array, int length)
 	for (int i = 0; i < length; i++)
 	{
 		array[i] = rand();
-		// cout << array[i] << endl;
 	}
 }
 
